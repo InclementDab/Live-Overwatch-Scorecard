@@ -4,6 +4,12 @@
 Feel free to follow me on twitch for more projects like this
 http://www.twitch.tv/InclementDeath
 
+**Features**
+* StartSR / CurrentSR Tracker, along with a difference tracker
+* Customizable output
+* Log in with BattleNET to retrieve your current SR (note your game must be restarted for this to be updated, which is why it is not realtime.. yet...)
+* Effortlessly track Win Streaks, or Loss Streaks! Dont worry about having to constantly edit that text file after every game
+
 **Install Instructions:**
 <p>1.) Download ZIP Version of file</p>
 <p>2.) Extract the WinLossCounter.exe to your desired location</p>
