@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WinLossCounter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OutputFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BattleTag" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PreviousCard" Type="WinLossCounter.Scorecard" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="QueryData" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Win Streak: %ws
+Wins: %w // Losses: %l // Draws: %d
+CurrentSR: %sr (%chsr)
+</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

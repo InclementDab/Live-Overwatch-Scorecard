@@ -1,0 +1,77 @@
+﻿<Window x:Class="WinLossCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p="clr-namespace:WinLossCounter.Properties"
+        xmlns:local="clr-namespace:WinLossCounter"
+        mc:Ignorable="d"
+        Title="Text Scorecard" Width="500" Height="200">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="MainStackPanel">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="Starting SR" HorizontalAlignment="Center"/>
+                        <TextBox x:Name="StartSR_Block" TextChanged="StartSR_Block_TextChanged" Text="{Binding StartSR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextAlignment="Center" Width="120" Margin="5" />
+                        <TextBlock Text="Current SR" HorizontalAlignment="Center"/>
+                        <TextBox x:Name="CurrentSR_Block" TextChanged="StartSR_Block_TextChanged" Text="{Binding CurrentSR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextAlignment="Center" Width="120" Margin="5"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="25 0 0 0">
+                        <TextBlock Text="Battle Tag" HorizontalAlignment="Center"/>
+                        <TextBox x:Name="BattleTagBox" Text="{Binding Source={x:Static p:Settings.Default}, Path=BattleTag, Mode=TwoWay}" Width="120" Margin="5"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Click="Login_Click" IsEnabled="{Binding ElementName=BattleTagBox, Path=Text.Length}" Content="Login" Width="60" Height="20"  Margin="0 0 5 0"/>
+                            <Button Click="Load_Click" Content="Load" Width="60" Height="20" Margin="5 0 0 0"/>
+                        </StackPanel>
+
+                        <TextBlock x:Name="InfoBox" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <TextBlock Text="Win Counter" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding WinCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Button Click="Win_Add" FontFamily="Marlett" FontSize="12" Margin="1" Content="5" Height="15" Width="15"/>
+                        <Button Click="Win_Remove" FontFamily="Marlett" FontSize="12" Margin="1" Content="6" Height="15" Width="15"/>
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <TextBlock Text="Draw Counter" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding DrawCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Button Click="Draw_Add" FontFamily="Marlett" FontSize="12" Margin="1" Content="5" Height="15" Width="15"/>
+                        <Button Click="Draw_Remove" FontFamily="Marlett" FontSize="12" Margin="1" Content="6" Height="15" Width="15"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Margin="5">
+                        <TextBlock Text="Loss Counter" VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding LossCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                        <Button Click="Loss_Add" FontFamily="Marlett" FontSize="12" Margin="1" Content="5" Height="15" Width="15"/>
+                        <Button Click="Loss_Remove" FontFamily="Marlett" FontSize="12" Margin="1" Content="6" Height="15" Width="15"/>
+                    </StackPanel>
+
+                    <Button Content="Reset" Width="80" Height="20" Margin="10" Click="Reset_Click"/>
+                </StackPanel>
+
+                
+            </StackPanel>
+
+
+
+        </StackPanel>
+        <Button Content="6" FontFamily="Marlett" Click="Details_Click" Width="16" Height="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"/>
+    </Grid>
+</Window>
