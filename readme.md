@@ -1,4 +1,3 @@
-Readme!
 
 This is an Open Source, realtime scorecard built for Overwatch + Live Streaming!
 
