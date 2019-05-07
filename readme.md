@@ -20,3 +20,4 @@ http://www.twitch.tv/InclementDeath
 %sr = Start SR
 %csr = Current SR
 %chsr = Difference in SR
+
