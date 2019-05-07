@@ -35,4 +35,4 @@ http://www.twitch.tv/InclementDeath
 ![Example Image2](/Examples/image2.PNG)
 
 **In Game Example** (NOTE: THIS IS VERY CUSTOMIZABLE, THIS IS JUST WHAT I HAVE IT PRESET TO)
-![Example Image3](/Examples/image3.PNG)
+![Example Image3](/Examples/image3.png)
