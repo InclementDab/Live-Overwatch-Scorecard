@@ -33,3 +33,6 @@ http://www.twitch.tv/InclementDeath
 
 **Expanded UI**
 ![Example Image2](/Examples/image2.PNG)
+
+**In Game Example** (NOTE: THIS IS VERY CUSTOMIZABLE, THIS IS JUST WHAT I HAVE IT PRESET TO)
+![Example Image2](/Examples/image3.PNG)
