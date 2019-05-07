@@ -21,3 +21,4 @@ http://www.twitch.tv/InclementDeath
 * %csr = Current SR
 * %chsr = Difference in SR
 
+![Example Image](/Examples/image1.png)
