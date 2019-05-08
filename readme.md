@@ -16,7 +16,7 @@ http://www.twitch.tv/InclementDeath
 <p>3.) Run program (the app will prompt for you to save a "*.txt" file. This is the output of the Scorecard)</p>
 <p>4.) Enjoy! I have included a syntax list below if you want to customize the message I have preset in the app itself.</p>
 
-[Direct Download]: https://drive.google.com/uc?export=download&id=1xKLBvwZ6kSLxRQOfy-RT0vBh59Zo3nzi
+[Direct Download](https://drive.google.com/uc?export=download&id=1xKLBvwZ6kSLxRQOfy-RT0vBh59Zo3nzi)
 
 
 **Syntax:**
