@@ -8,14 +8,14 @@
     <Setting Name="BattleTag" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="PreviousCard" Type="WinLossCounter.Scorecard" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="QueryData" Type="System.String" Scope="User">
       <Value Profile="(Default)">Win Streak: %ws
 Wins: %w // Losses: %l // Draws: %d
 CurrentSR: %csr (%chsr)
 </Value>
+    </Setting>
+    <Setting Name="PreviousCard" Type="WinLossCounter.Scorecard" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

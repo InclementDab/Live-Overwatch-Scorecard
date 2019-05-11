@@ -16,9 +16,9 @@
 
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="Starting SR" HorizontalAlignment="Center"/>
-                        <TextBox x:Name="StartSR_Block" TextChanged="StartSR_Block_TextChanged" Text="{Binding StartSR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextAlignment="Center" Width="120" Margin="5" />
+                        <TextBox x:Name="StartSR_Block" TextChanged="StartSR_Block_TextChanged" Text="{Binding Scorecard.StartSR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextAlignment="Center" Width="120" Margin="5" />
                         <TextBlock Text="Current SR" HorizontalAlignment="Center"/>
-                        <TextBox x:Name="CurrentSR_Block" TextChanged="StartSR_Block_TextChanged" Text="{Binding CurrentSR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextAlignment="Center" Width="120" Margin="5"/>
+                        <TextBox x:Name="CurrentSR_Block" TextChanged="StartSR_Block_TextChanged" Text="{Binding Scorecard.CurrentSR, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" TextAlignment="Center" Width="120" Margin="5"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="25 0 0 0">
@@ -26,10 +26,10 @@
                         <TextBox x:Name="BattleTagBox" Text="{Binding Source={x:Static p:Settings.Default}, Path=BattleTag, Mode=TwoWay}" Width="120" Margin="5"/>
                         <StackPanel Orientation="Horizontal">
                             <Button Click="Login_Click" IsEnabled="{Binding ElementName=BattleTagBox, Path=Text.Length}" Content="Login" Width="60" Height="20"  Margin="0 0 5 0"/>
-                            <Button Click="Load_Click" Content="Load" Width="60" Height="20" Margin="5 0 0 0"/>
+                            <Button Click="Update_Click" IsEnabled="{Binding Scorecard.UserLoggedIn, UpdateSourceTrigger=PropertyChanged}" Content="Update" Width="60" Height="20" Margin="5 0 0 0"/>
                         </StackPanel>
 
-                        <TextBlock x:Name="InfoBox" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="InfoBox" HorizontalAlignment="Center" Margin="2"/>
                     </StackPanel>
 
                 </StackPanel>
@@ -37,7 +37,7 @@
 
                     <StackPanel Orientation="Vertical" Margin="5">
                         <TextBlock Text="Win Counter" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding WinCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Scorecard.WinCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                         <Button Click="Win_Add" FontFamily="Marlett" FontSize="12" Margin="1" Content="5" Height="15" Width="15"/>
@@ -47,7 +47,7 @@
 
                     <StackPanel Orientation="Vertical" Margin="5">
                         <TextBlock Text="Draw Counter" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding DrawCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Scorecard.DrawCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                         <Button Click="Draw_Add" FontFamily="Marlett" FontSize="12" Margin="1" Content="5" Height="15" Width="15"/>
@@ -56,7 +56,7 @@
 
                     <StackPanel Orientation="Vertical" Margin="5">
                         <TextBlock Text="Loss Counter" VerticalAlignment="Center"/>
-                        <TextBlock Text="{Binding LossCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Scorecard.LossCount, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center">
                         <Button Click="Loss_Add" FontFamily="Marlett" FontSize="12" Margin="1" Content="5" Height="15" Width="15"/>

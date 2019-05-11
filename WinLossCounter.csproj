@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="Scorecard.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModel.cs" />
     <Page Include="DetailsAddin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -17,6 +17,17 @@ namespace WinLossCounter
     public class Scorecard : ScorecardSettings, INotifyPropertyChanged
     {
 
+        private bool _UserLoggedIn;
+        public bool UserLoggedIn
+        {
+            get => _UserLoggedIn;
+            set
+            {
+                _UserLoggedIn = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private Player _Player;
         public Player Player
         {
@@ -83,8 +94,8 @@ namespace WinLossCounter
                 else
                 {
                     _DrawCount = value;
-                    if (DrawResetsWinStreak) WinStreak = 0;
-                    if (DrawResetsLossStreak) LossStreak = 0;
+                    WinStreak = DrawResetsWinStreak ? 0 : WinStreak;
+                    WinStreak = DrawResetsLossStreak ? 0 : LossStreak;
                 }
 
 
@@ -101,6 +112,8 @@ namespace WinLossCounter
                 if (value < 0 && _LossCount <= 0) return;
                 LossStreak += value > 0 ? 1 : LossStreak <= 0 ? 0 : -1;
                 WinStreak = 0;
+
+                
 
                 _LossCount = value;
                 NotifyPropertyChanged();

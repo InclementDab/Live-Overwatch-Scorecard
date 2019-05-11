@@ -49,17 +49,6 @@ namespace WinLossCounter.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::WinLossCounter.Scorecard PreviousCard {
-            get {
-                return ((global::WinLossCounter.Scorecard)(this["PreviousCard"]));
-            }
-            set {
-                this["PreviousCard"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Win Streak: %ws\r\nWins: %w // Losses: %l // Draws: %d\r\nCurrentSR: %csr (%chsr)\r\n")]
         public string QueryData {
             get {
@@ -67,6 +56,17 @@ namespace WinLossCounter.Properties {
             }
             set {
                 this["QueryData"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::WinLossCounter.Scorecard PreviousCard {
+            get {
+                return ((global::WinLossCounter.Scorecard)(this["PreviousCard"]));
+            }
+            set {
+                this["PreviousCard"] = value;
             }
         }
     }

@@ -21,12 +21,14 @@ namespace WinLossCounter
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Scorecard _Scorecard;
+
+        public ViewModel MainViewModel;
+
+        private Scorecard Scorecard => MainViewModel.Scorecard;
 
         public MainWindow()
         {
             InitializeComponent();
-
 
             if (string.IsNullOrEmpty(Settings.Default.OutputFile)) Browse_Click(null, null);
 
@@ -40,32 +42,34 @@ namespace WinLossCounter
                 Environment.Exit(-1);
             }
 
+            DataContext = MainViewModel = new ViewModel();
+
+
             if (Settings.Default.PreviousCard != null)
+            {
                 if (MessageBox.Show("Load Previous SR Values?", "Previous SR Values Found", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    _Scorecard.StartSR = Settings.Default.PreviousCard.StartSR;
-                    _Scorecard.CurrentSR = Settings.Default.PreviousCard.CurrentSR;
+                    Scorecard.StartSR = Settings.Default.PreviousCard.StartSR;
+                    Scorecard.CurrentSR = Settings.Default.PreviousCard.CurrentSR;
                 }
-
-            DataContext = _Scorecard = new Scorecard();
+            }
 
         }
 
-        private void Win_Add(object sender, RoutedEventArgs e) => _Scorecard.WinCount += 1;
-        private void Win_Remove(object sender, RoutedEventArgs e) => _Scorecard.WinCount -= 1;
+        private void Win_Add(object sender, RoutedEventArgs e) => Scorecard.WinCount += 1;
+        private void Win_Remove(object sender, RoutedEventArgs e) => Scorecard.WinCount -= 1;
 
-        private void Draw_Add(object sender, RoutedEventArgs e) => _Scorecard.DrawCount += 1;
-        private void Draw_Remove(object sender, RoutedEventArgs e) => _Scorecard.DrawCount -= 1;
+        private void Draw_Add(object sender, RoutedEventArgs e) => Scorecard.DrawCount += 1;
+        private void Draw_Remove(object sender, RoutedEventArgs e) => Scorecard.DrawCount -= 1;
 
-        private void Loss_Add(object sender, RoutedEventArgs e) => _Scorecard.LossCount += 1;
-        private void Loss_Remove(object sender, RoutedEventArgs e) => _Scorecard.LossCount -= 1;
+        private void Loss_Add(object sender, RoutedEventArgs e) => Scorecard.LossCount += 1;
+        private void Loss_Remove(object sender, RoutedEventArgs e) => Scorecard.LossCount -= 1;
 
-        private void Load_Click(object sender, RoutedEventArgs e) => _Scorecard = Settings.Default.PreviousCard;
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            _Scorecard.WinCount = 0;
-            _Scorecard.LossCount = 0;
-            _Scorecard.DrawCount = 0;
+            Scorecard.WinCount = 0;
+            Scorecard.LossCount = 0;
+            Scorecard.DrawCount = 0;
         }
 
         public static void Update_Content(Scorecard scorecard)
@@ -120,15 +124,13 @@ namespace WinLossCounter
 
         }
 
-
-        private bool UserLoggedIn = false;
         private async void Login_Click(object sender, RoutedEventArgs e) // this code is kinda spaghetti but it handles the login pretty well so imma leave it
         {
             var btn = sender as Button;
-            if (UserLoggedIn)
+            if (Scorecard.UserLoggedIn)
             {
-                _Scorecard.Player = null;
-                UserLoggedIn = false;
+                Scorecard.Player = null;
+                Scorecard.UserLoggedIn = false;
 
                 InfoBox_Modify("Logged Out");
                 btn.Content = "Login";
@@ -139,7 +141,7 @@ namespace WinLossCounter
             {
                 OverwatchClient owClient = new OverwatchClient();
                 InfoBox_Modify("Logging in...");
-                _Scorecard.Player = await owClient.GetPlayerAsync(Settings.Default.BattleTag, Platform.Pc);
+                Scorecard.Player = await owClient.GetPlayerAsync(Settings.Default.BattleTag, Platform.Pc);
             }
             catch (Exception ex)
             {
@@ -148,16 +150,15 @@ namespace WinLossCounter
             }
 
 
-            if (_Scorecard.Player.IsProfilePrivate)
+            if (Scorecard.Player.IsProfilePrivate)
             {
                 InfoBox_Modify("Error: Private Profile", Brushes.Red);
             }
             else
             {
                 InfoBox_Modify("Login Successful", Brushes.Green);
-                _Scorecard.StartSR = _Scorecard.Player.CompetitiveRank;
-                _Scorecard.CurrentSR = _Scorecard.StartSR;
-                UserLoggedIn = true;
+                Scorecard.CurrentSR = Scorecard.Player.CompetitiveRank;
+                Scorecard.UserLoggedIn = true;
                 btn.Content = "Logout";
             }
         }
@@ -172,21 +173,22 @@ namespace WinLossCounter
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            Settings.Default.PreviousCard = _Scorecard;
-            Settings.Default.Save();
             base.OnClosing(e);
+            Settings.Default.PreviousCard = Scorecard;
+            Settings.Default.Save();
+            
         }
 
         private void StartSR_Block_TextChanged(object sender, TextChangedEventArgs e)
         {
             CurrentSR_Block.Foreground =
-                _Scorecard.CurrentSR > _Scorecard.StartSR ? Brushes.Green :
-                _Scorecard.CurrentSR < _Scorecard.StartSR ? Brushes.Red :
+                Scorecard.CurrentSR > Scorecard.StartSR ? Brushes.Green :
+                Scorecard.CurrentSR < Scorecard.StartSR ? Brushes.Red :
                 Brushes.Black;
         }
 
         private bool Details_Opened;
-        private DetailsAddin Details_Page = new DetailsAddin();
+        private readonly DetailsAddin Details_Page = new DetailsAddin();
         private void Details_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
@@ -199,6 +201,13 @@ namespace WinLossCounter
                 MainStackPanel.Children.Add(Details_Page);
             else
                 MainStackPanel.Children.Remove(Details_Page);
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            InfoBox_Modify("Updating...");
+            Scorecard.CurrentSR = Scorecard.Player.CompetitiveRank;
+            InfoBox_Modify("Up To Date", Brushes.Green);
         }
     }
 }
