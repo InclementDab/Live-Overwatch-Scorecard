@@ -68,10 +68,6 @@ namespace WinLossCounter
             _Scorecard.DrawCount = 0;
         }
 
-
-
-
-
         public static void Update_Content(Scorecard scorecard)
         {
             File.WriteAllText(Settings.Default.OutputFile, ParseLine(Settings.Default.QueryData, scorecard));
@@ -194,10 +190,9 @@ namespace WinLossCounter
         private void Details_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-
             Details_Opened = !Details_Opened; // Toggle Bool
 
-            btn.Content = Details_Opened ? 5 : 6;
+            btn.Content = Details_Opened ? 5 : 6; // Changes arrow
             Height = Details_Opened ? 500 : 200; // Set Height
 
             if (Details_Opened)

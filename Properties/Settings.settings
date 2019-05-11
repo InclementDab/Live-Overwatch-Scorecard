@@ -14,7 +14,7 @@
     <Setting Name="QueryData" Type="System.String" Scope="User">
       <Value Profile="(Default)">Win Streak: %ws
 Wins: %w // Losses: %l // Draws: %d
-CurrentSR: %sr (%chsr)
+CurrentSR: %csr (%chsr)
 </Value>
     </Setting>
   </Settings>
