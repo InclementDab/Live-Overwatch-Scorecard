@@ -16,6 +16,8 @@ http://www.twitch.tv/InclementDeath
 <p>3.) Run program (the app will prompt for you to save a "*.txt" file. This is the output of the Scorecard)</p>
 <p>4.) Enjoy! I have included a syntax list below if you want to customize the message I have preset in the app itself.</p>
 
+[Direct Download](https://drive.google.com/uc?export=download&id=1xKLBvwZ6kSLxRQOfy-RT0vBh59Zo3nzi)
+
 
 **Syntax:**
 * %w = Total Wins
@@ -33,3 +35,6 @@ http://www.twitch.tv/InclementDeath
 
 **Expanded UI**
 ![Example Image2](/Examples/image2.PNG)
+
+**In Game Example** (NOTE: THIS IS VERY CUSTOMIZABLE, THIS IS JUST WHAT I HAVE IT PRESET TO)
+![Example Image3](/Examples/image3.png)
