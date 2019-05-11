@@ -22,9 +22,8 @@ namespace WinLossCounter
     public partial class MainWindow : Window
     {
 
-        public ViewModel MainViewModel;
 
-        private Scorecard Scorecard => MainViewModel.Scorecard;
+        public Scorecard Scorecard;
 
         public MainWindow()
         {
@@ -42,7 +41,7 @@ namespace WinLossCounter
                 Environment.Exit(-1);
             }
 
-            DataContext = MainViewModel = new ViewModel();
+            DataContext = Scorecard = new Scorecard();
 
 
             if (Settings.Default.PreviousCard != null)
