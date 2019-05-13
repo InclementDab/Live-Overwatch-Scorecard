@@ -14,7 +14,7 @@ Overwatch Scorecard is an Open Source, realtime scorecard built for Overwatch + 
 <p>3.) Run program (the app will prompt for you to save a "*.txt" file. This is the output of the Scorecard)</p>
 <p>4.) Enjoy! I have included a syntax list below if you want to customize the message I have preset in the app itself.</p>
 
-[Direct Download](https://www.dropbox.com/s/7brvsnmivetelab/WinLossCounter.zip?dl=1)
+[Direct Download](https://www.dropbox.com/s/2bxhn7doyyv8uap/WinLossCounter.zip?dl=1)
 
 
 ### Syntax:
