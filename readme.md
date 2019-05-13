@@ -1,16 +1,14 @@
 
-**This is an Open Source, realtime scorecard built for Overwatch + Live Streaming!**
+## What is OW-Scorecard?
+Overwatch Scorecard is an Open Source, realtime scorecard built for Overwatch + Live Streaming. The software is designed to manage a text file of your choice, and allow you to easily track Wins/Losses/Draws, along with SR, WinStreaks, and more.
 
-Feel free to follow me on twitch for more projects like this
-http://www.twitch.tv/InclementDeath
-
-**Features**
+### Features
 * StartSR / CurrentSR Tracker, along with a difference tracker
 * Customizable output
 * Log in with BattleNET to retrieve your current SR (note your game must be restarted for this to be updated, which is why it is not realtime.. yet...)
 * Effortlessly track Win Streaks, or Loss Streaks! Dont worry about having to constantly edit that text file after every game
 
-**Install Instructions:**
+### Install Instructions:
 <p>1.) Download ZIP Version of file</p>
 <p>2.) Extract the WinLossCounter.exe to your desired location</p>
 <p>3.) Run program (the app will prompt for you to save a "*.txt" file. This is the output of the Scorecard)</p>
@@ -19,7 +17,7 @@ http://www.twitch.tv/InclementDeath
 [Direct Download](https://www.dropbox.com/s/7brvsnmivetelab/WinLossCounter.zip?dl=1)
 
 
-**Syntax:**
+### Syntax:
 * %w = Total Wins
 * %l = Total Losses
 * %d = Total Draws
@@ -28,6 +26,9 @@ http://www.twitch.tv/InclementDeath
 * %sr = Start SR 
 * %csr = Current SR
 * %chsr = Difference in SR
+
+**Feel free to follow me on twitch for more projects like this**
+http://www.twitch.tv/InclementDeath
 
 
 **Main UI**
