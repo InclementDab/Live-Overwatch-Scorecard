@@ -27,7 +27,7 @@ Overwatch Scorecard is an Open Source, realtime scorecard built for Overwatch + 
 * %csr = Current SR
 * %chsr = Difference in SR
 
-**Feel free to follow me on twitch for more projects like this**
+**I also actively stream the development and update process for this app, come join!**
 http://www.twitch.tv/InclementDeath
 
 
